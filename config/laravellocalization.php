@@ -52,7 +52,6 @@ return [
         //'ewo'         => ['name' => 'Ewondo',                 'script' => 'Latn', 'native' => 'ewondo', 'regional' => ''],
         //'ee'          => ['name' => 'Ewe',                    'script' => 'Latn', 'native' => 'eʋegbe', 'regional' => ''],
         //'fil'         => ['name' => 'Filipino',               'script' => 'Latn', 'native' => 'Filipino', 'regional' => 'fil_PH'],
-        //'fr'          => ['name' => 'French',                 'script' => 'Latn', 'native' => 'français', 'regional' => 'fr_FR'],
         //'fr-CA'       => ['name' => 'Canadian French',        'script' => 'Latn', 'native' => 'français canadien', 'regional' => 'fr_CA'],
         //'fy'          => ['name' => 'Western Frisian',        'script' => 'Latn', 'native' => 'frysk', 'regional' => 'fy_DE'],
         //'fur'         => ['name' => 'Friulian',               'script' => 'Latn', 'native' => 'furlan', 'regional' => 'fur_IT'],
@@ -221,7 +220,8 @@ return [
         //'mk'          => ['name' => 'Macedonian',             'script' => 'Cyrl', 'native' => 'македонски', 'regional' => 'mk_MK'],
         //'mn'          => ['name' => 'Mongolian (Cyrillic)',   'script' => 'Cyrl', 'native' => 'монгол', 'regional' => 'mn_MN'],
         //'ce'          => ['name' => 'Chechen',                'script' => 'Cyrl', 'native' => 'нохчийн мотт', 'regional' => 'ce_RU'],
-        'tm'          => ['name' => 'Turkmen',                'script' => 'Cyrl', 'native' => 'TM', 'regional' => 'tk_TM'],
+        'fr'          => ['name' => 'French',                 'script' => 'Latn', 'native' => 'FR', 'regional' => 'fr_FR'],
+        // 'tm'          => ['name' => 'Turkmen',                'script' => 'Cyrl', 'native' => 'TM', 'regional' => 'tk_TM'],
         'ru'          => ['name' => 'Russian',                'script' => 'Cyrl', 'native' => 'РУ', 'regional' => 'ru_RU'],
         'en'          => ['name' => 'English',                'script' => 'Latn', 'native' => 'EN', 'regional' => 'en_GB'],
 
