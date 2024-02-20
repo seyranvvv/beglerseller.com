@@ -35,8 +35,8 @@ class Slider extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('slider_tm')
-            ->useDisk('slider_tm')
+        $this->addMediaCollection('slider_fr')
+            ->useDisk('slider_fr')
             ->singleFile();
 
         $this->addMediaCollection('slider_ru')
@@ -51,11 +51,11 @@ class Slider extends Model implements HasMedia
     public function addImageTm(UploadedFile $image): void
     {
         $filename = Str::random(10) . '.' . $image->getClientOriginalExtension();
-        $this->clearMediaCollection('slider_tm');
+        $this->clearMediaCollection('slider_fr');
 
         $this->addMedia($image)
             ->usingFileName($filename)
-            ->toMediaCollection('slider_tm');
+            ->toMediaCollection('slider_fr');
     }
 
 

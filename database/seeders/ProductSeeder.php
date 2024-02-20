@@ -33,12 +33,12 @@ class ProductSeeder extends Seeder
                     for ($i = 0; $i < 8; $i++) {
                         $s = $section->products()->create([
                             'title' => [
-                                'tm' =>  $product['title'],
+                                'fr' =>  $product['title'],
                                 'en' =>  $product['title'],
                                 'ru' =>  $product['title'],
                             ],
                             'content' => [
-                                'tm' =>  $product['content'],
+                                'fr' =>  $product['content'],
                                 'en' =>  $product['content'],
                                 'ru' =>  $product['content'],
                             ],

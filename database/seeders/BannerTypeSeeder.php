@@ -17,7 +17,7 @@ class BannerTypeSeeder extends Seeder
             [
                 'slug' => 'about',
                 'name' => [
-                    'tm' => 'Biz Barada',
+                    'fr' => 'Biz Barada',
                     'en' => 'About us',
                     'ru' => 'О нас',
                 ]
@@ -25,7 +25,7 @@ class BannerTypeSeeder extends Seeder
             [
                 'slug' => 'service',
                 'name' => [
-                    'tm' => 'Hyzmatlarymyz',
+                    'fr' => 'Hyzmatlarymyz',
                     'en' => 'Our services ',
                     'ru' => 'Наши сервисы',
                 ]
@@ -33,7 +33,7 @@ class BannerTypeSeeder extends Seeder
             [
                 'slug' => 'post',
                 'name' => [
-                    'tm' => 'Täzelikler',
+                    'fr' => 'Täzelikler',
                     'en' => 'News',
                     'ru' => 'Новости',
                 ]
@@ -42,7 +42,7 @@ class BannerTypeSeeder extends Seeder
             [
                 'slug' => 'contact',
                 'name' => [
-                    'tm' => 'Habarlaşmak',
+                    'fr' => 'Habarlaşmak',
                     'en' => 'Contact us',
                     'ru' => 'Связаться',
                 ]
@@ -54,7 +54,7 @@ class BannerTypeSeeder extends Seeder
             $type = BannerType::create([
                 'slug' => $type['slug'],
                 'name' => [
-                    'tm' => $type['name']['tm'],
+                    'fr' => $type['name']['fr'],
                     'ru' => $type['name']['ru'],
                     'en' => $type['name']['en'],
 

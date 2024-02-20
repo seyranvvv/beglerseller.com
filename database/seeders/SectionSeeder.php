@@ -37,12 +37,12 @@ class SectionSeeder extends Seeder
                 'slug' => $section['slug'],
             ], [
                 'name' => [
-                    'tm' =>  $section['name'],
+                    'fr' =>  $section['name'],
                     'en' =>  $section['name'],
                     'ru' =>  $section['name'],
                 ],
                 'description' => [
-                    'tm' =>  $section['description'],
+                    'fr' =>  $section['description'],
                     'en' =>  $section['description'],
                     'ru' =>  $section['description'],
                 ],

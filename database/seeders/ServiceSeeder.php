@@ -30,12 +30,12 @@ class ServiceSeeder extends Seeder
                 for ($i = 0; $i < 8; $i++) {
                     $s = $section->services()->create([
                         'title' => [
-                            'tm' =>  $service['title'],
+                            'fr' =>  $service['title'],
                             'en' =>  $service['title'],
                             'ru' =>  $service['title'],
                         ],
                         'content' => [
-                            'tm' =>  $service['content'],
+                            'fr' =>  $service['content'],
                             'en' =>  $service['content'],
                             'ru' =>  $service['content'],
                         ],

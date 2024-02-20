@@ -29,12 +29,12 @@ class SliderSeeder extends Seeder
             foreach ($data as $slider) {
                 $s =  $section->sliders()->create([
                     'title' => [
-                        'tm' =>  $slider['title'],
+                        'fr' =>  $slider['title'],
                         'en' =>  $slider['title'],
                         'ru' =>  $slider['title'],
                     ],
                     'body' => [
-                        'tm' =>  $slider['body'],
+                        'fr' =>  $slider['body'],
                         'en' =>  $slider['body'],
                         'ru' =>  $slider['body'],
                     ],
@@ -43,7 +43,7 @@ class SliderSeeder extends Seeder
 
 
                 ]);
-                $s->addMedia(public_path('seeder/' . $slider['image']))->preservingOriginal()->toMediaCollection('slider_tm');
+                $s->addMedia(public_path('seeder/' . $slider['image']))->preservingOriginal()->toMediaCollection('slider_fr');
                 $s->addMedia(public_path('seeder/' . $slider['image']))->preservingOriginal()->toMediaCollection('slider_en');
                 $s->addMedia(public_path('seeder/' . $slider['image']))->preservingOriginal()->toMediaCollection('slider_ru');
             }

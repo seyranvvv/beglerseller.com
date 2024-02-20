@@ -31,12 +31,12 @@ class CardSeeder extends Seeder
                     for ($i = 0; $i < 3; $i++) {
                         $c = $section->cards()->create([
                             'name' => [
-                                'tm' =>  $card['name'],
+                                'fr' =>  $card['name'],
                                 'en' =>  $card['name'],
                                 'ru' =>  $card['name'],
                             ],
                             'body' => [
-                                'tm' =>  $card['body'],
+                                'fr' =>  $card['body'],
                                 'en' =>  $card['body'],
                                 'ru' =>  $card['body'],
                             ],
@@ -67,19 +67,19 @@ class CardSeeder extends Seeder
                     for ($i = 0; $i < 4; $i++) {
                         $c = $section->cards()->create([
                             'name' => [
-                                'tm' =>  $card['name'],
+                                'fr' =>  $card['name'],
                                 'en' =>  $card['name'],
                                 'ru' =>  $card['name'],
                             ],
                             'body' => [
-                                'tm' =>  $card['body'],
+                                'fr' =>  $card['body'],
                                 'en' =>  $card['body'],
                                 'ru' =>  $card['body'],
                             ],
                             'card_type_id' => $counterCard->id,
                             'counter_number' =>  $card['counter_number'],
                             'counter_text' => [
-                                'tm' =>  $card['counter_text'],
+                                'fr' =>  $card['counter_text'],
                                 'en' =>  $card['counter_text'],
                                 'ru' =>  $card['counter_text'],
                             ],

@@ -29,12 +29,12 @@ class ContactSeeder extends Seeder
             foreach ($data as $contact) {
                 Contact::create([
                     'address' => [
-                        'tm' =>  $contact['address'],
+                        'fr' =>  $contact['address'],
                         'en' =>  $contact['address'],
                         'ru' =>  $contact['address'],
                     ],
                     'slogan' => [
-                        'tm' =>  $contact['slogan'],
+                        'fr' =>  $contact['slogan'],
                         'en' =>  $contact['slogan'],
                         'ru' =>  $contact['slogan'],
                     ],

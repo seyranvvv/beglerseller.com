@@ -34,12 +34,12 @@ class PostSeeder extends Seeder
                     $p = $section->posts()->create(
                         [
                             'title' => [
-                                'tm' =>  $post['title'],
+                                'fr' =>  $post['title'],
                                 'en' =>  $post['title'],
                                 'ru' =>  $post['title'],
                             ],
                             'content' => [
-                                'tm' =>  $post['content'],
+                                'fr' =>  $post['content'],
                                 'en' =>  $post['content'],
                                 'ru' =>  $post['content'],
                             ],

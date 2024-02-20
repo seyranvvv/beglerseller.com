@@ -79,7 +79,7 @@
                     ],
                     mark: true,
                     "language": {
-                        @if (app()->getLocale() == 'tm')
+                        @if (app()->getLocale() == 'fr')
                             "url": "{{ asset('js/datatables/tm.json') }}",
                         @elseif (app()->getLocale() == 'ru')
                             "url": "{{ asset('js/datatables/ru.json') }}",

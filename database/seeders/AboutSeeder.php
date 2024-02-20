@@ -60,18 +60,18 @@ class AboutSeeder extends Seeder
             foreach ($data as $about) {
                 $a = $section->abouts()->create([
                     'title' => [
-                        'tm' =>  $about['title'],
+                        'fr' =>  $about['title'],
                         'en' =>  $about['title'],
                         'ru' =>  $about['title'],
                     ],
                     'content' => [
-                        'tm' =>  $about['content'],
+                        'fr' =>  $about['content'],
                         'en' =>  $about['content'],
                         'ru' =>  $about['content'],
                     ],
                     'years_number' => $about['years_number'],
                     'years_text' => [
-                        'tm' =>  $about['years_text'],
+                        'fr' =>  $about['years_text'],
                         'en' =>  $about['years_text'],
                         'ru' =>  $about['years_text'],
                     ],

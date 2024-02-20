@@ -221,7 +221,7 @@ return [
         //'mn'          => ['name' => 'Mongolian (Cyrillic)',   'script' => 'Cyrl', 'native' => 'монгол', 'regional' => 'mn_MN'],
         //'ce'          => ['name' => 'Chechen',                'script' => 'Cyrl', 'native' => 'нохчийн мотт', 'regional' => 'ce_RU'],
         'fr'          => ['name' => 'French',                 'script' => 'Latn', 'native' => 'FR', 'regional' => 'fr_FR'],
-        // 'tm'          => ['name' => 'Turkmen',                'script' => 'Cyrl', 'native' => 'TM', 'regional' => 'tk_TM'],
+        // 'fr'          => ['name' => 'Turkmen',                'script' => 'Cyrl', 'native' => 'fr', 'regional' => 'tk_TM'],
         'ru'          => ['name' => 'Russian',                'script' => 'Cyrl', 'native' => 'РУ', 'regional' => 'ru_RU'],
         'en'          => ['name' => 'English',                'script' => 'Latn', 'native' => 'EN', 'regional' => 'en_GB'],
 
@@ -332,7 +332,7 @@ return [
     // If you want to display the locales in particular order in the language selector you should write the order here.
     //CAUTION: Please consider using the appropriate locale code otherwise it will not work
     //Example: 'localesOrder' => ['es','en'],
-    'localesOrder' => ['tm', 'ru', 'en'],
+    'localesOrder' => ['fr', 'ru', 'en'],
 
     //  If you want to use custom lang url segments like 'at' instead of 'de-AT', you can use the mapping to tallow the LanguageNegotiator to assign the descired locales based on HTTP Accept Language Header. For example you want ot use 'at', so map HTTP Accept Language Header 'de-AT' to 'at' (['de-AT' => 'at']).
     'localesMapping' => [],

@@ -32,7 +32,7 @@ class CategorySeeder extends Seeder
         foreach ($data as $category) {
             Category::create([
                 'name' => [
-                    'tm' => $category['name'],
+                    'fr' => $category['name'],
                     'en' => $category['name'],
                     'ru' => $category['name'],
                 ]

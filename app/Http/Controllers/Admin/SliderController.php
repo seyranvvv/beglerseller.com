@@ -42,8 +42,8 @@ class SliderController extends Controller
         $data = $request->validated();
         $slider = config('section')->sliders()->create($data);
 
-        if (isset($data['image']['tm'])) {
-            $slider->addImageTm($data['image']['tm']);
+        if (isset($data['image']['fr'])) {
+            $slider->addImageTm($data['image']['fr']);
         }
 
         if (isset($data['image']['ru'])) {
@@ -88,8 +88,8 @@ class SliderController extends Controller
         $data = $request->validated();
         $slider->update($data);
 
-        if (isset($data['image']['tm'])) {
-            $slider->addImageTm($data['image']['tm']);
+        if (isset($data['image']['fr'])) {
+            $slider->addImageTm($data['image']['fr']);
         }
 
         if (isset($data['image']['ru'])) {
@@ -111,7 +111,7 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
-        $slider->clearMediaCollection('slider_tm');
+        $slider->clearMediaCollection('slider_fr');
         $slider->clearMediaCollection('slider_en');
         $slider->clearMediaCollection('slider_ru');
         $slider->delete();

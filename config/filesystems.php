@@ -64,10 +64,10 @@ return [
             'visibility' => 'public',
         ],
 
-        'slider_tm' => [
+        'slider_fr' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/slider_tm'),
-            'url' => env('APP_URL') . '/storage/slider_tm',
+            'root' => storage_path('app/public/slider_fr'),
+            'url' => env('APP_URL') . '/storage/slider_fr',
             'visibility' => 'public',
         ],
         'slider_en' => [

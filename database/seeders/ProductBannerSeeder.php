@@ -21,7 +21,7 @@ class ProductBannerSeeder extends Seeder
             [
                 'slug' => 'product',
                 'name' => [
-                    'tm' => 'Harytlar',
+                    'fr' => 'Harytlar',
                     'en' => 'Products',
                     'ru' => 'Продукты',
                 ]
@@ -34,7 +34,7 @@ class ProductBannerSeeder extends Seeder
             $type = BannerType::create([
                 'slug' => $type['slug'],
                 'name' => [
-                    'tm' => $type['name']['tm'],
+                    'fr' => $type['name']['fr'],
                     'ru' => $type['name']['ru'],
                     'en' => $type['name']['en'],
 

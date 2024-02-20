@@ -17,7 +17,7 @@ class CardTypeSeeder extends Seeder
             [
                 'slug' =>   'index_icon',
                 'name' => [
-                    'tm' => 'Baş sahypa ýokardaky',
+                    'fr' => 'Baş sahypa ýokardaky',
                     'ru' => 'Главная страница вверху',
                     'en' => 'Home page above',
                 ]
@@ -25,7 +25,7 @@ class CardTypeSeeder extends Seeder
             [
                 'slug' =>   'counter',
                 'name' => [
-                    'tm' => 'Counter (sanayjy)',
+                    'fr' => 'Counter (sanayjy)',
                     'ru' => 'Счетчик',
                     'en' => 'Counter',
                 ]

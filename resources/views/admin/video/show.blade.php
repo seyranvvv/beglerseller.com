@@ -98,7 +98,7 @@
                             var chart = AmCharts.makeChart("chartSerial", {
                                 "type": "serial",
                                 "theme": "light",
-                                @if (app()->getLocale() == 'tm')
+                                @if (app()->getLocale() == 'fr')
                                     "language": "tm",
                                 @elseif (app()->getLocale() == 'ru')
                                     "language": "ru",
