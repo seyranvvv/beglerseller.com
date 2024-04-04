@@ -38,7 +38,6 @@
 
 <script>
     $(document).ready(function() {
-        notify('hello')
         @if (session()->has('success'))
             notify("{{ session()->get('success') }}");
         @endif
