@@ -35,6 +35,12 @@
                                         'translations' => $obj->getTranslations('title'),
                                     ])
 
+                                    @include('admin.forms.price.edit', [
+                                        'name' => 'price',
+                                        'value' => $obj->price,
+                                        'label' => trans('transAdmin.price'),
+                                    ])
+
                                     @include('admin.forms.image.edit', [
                                         'resolution' => '270x320',
                                         'label' => 'Surat 1',

@@ -568,15 +568,19 @@
   }
 
   $(".add").on("click", function () {
-    if ($(this).prev().val() < 999) {
+    if ($(this).prev().val() < 100) {
       $(this)
         .prev()
         .val(+$(this).prev().val() + 1);
     }
   });
   $(".sub").on("click", function () {
-    if ($(this).next().val() > 1) {
-      if ($(this).next().val() > 1)
+    var min = $(this).data('min');
+    if (!min){
+        min = 0;
+    }
+    if ($(this).next().val() > min) {
+      if ($(this).next().val() > min)
         $(this)
           .next()
           .val(+$(this).next().val() - 1);

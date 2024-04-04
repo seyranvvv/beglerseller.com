@@ -1,3 +1,21 @@
+<style>
+    .cart-link {
+        position: relative;
+    }
+    .cart-count {
+        position: absolute;
+        right: -25px;
+        top: 0;
+        border-radius: 50%;
+        height: 25px;
+        width: 25px;
+        /* padding: 6px; */
+        font-weight: bold;
+        font-size: 14px;
+        color: rgb(11, 165, 157);
+        font-family: 'Roboto-Regular', serif !important;
+    }
+</style>
 <div class="main-menu__left">
     <div class="main-menu__logo d-flex dlex-column justify-content-center" style="position: relative; margin-right: 30px">
         <a href="{!! route('index') !!}">
@@ -17,7 +35,6 @@
                             </a>
                         </li>
                     @endforeach
-
                 </ul>
             </div>
         </div>
@@ -60,7 +77,23 @@
                 <li class="{{ Route::currentRouteName() == 'contact.index' ? 'current ' : '' }}">
                     <a href="{{ route('contact.index') }}">@lang('transFront.contact')</a>
                 </li>
-
+                <li class="{{ Route::currentRouteName() == 'cart' ? 'current ' : '' }}">
+                    {{-- <a class="cart-link" href="{{ route('cart') }}">@lang('transFront.cart')
+                        <div class="cart-count"></div>
+                    </a> --}}
+                    {{-- <a href="cart.html" class="main-menu__cart insur-two-icon-shopping-cart"></a> --}}
+                    <div class="">
+                        <div class="">
+                            {{-- <a href="#" class="main-menu__search search-toggler icon-magnifying-glass"></a> --}}
+                            <a href="{{ route('cart') }}" class="main-menu__cart insur-two-icon-shopping-cart">
+                                <div class="cart-count"></div>
+                            </a>
+                        </div>
+                        {{-- <div class="main-menu__main-menu-box-get-quote-btn-box">
+                            <a href="contact.html" class="thm-btn main-menu__main-menu-box-get-quote-btn">Get a Quote</a>
+                        </div> --}}
+                    </div>
+                </li>
             </ul>
         </div>
         <div class="main-menu__main-menu-box-search-get-quote-btn">

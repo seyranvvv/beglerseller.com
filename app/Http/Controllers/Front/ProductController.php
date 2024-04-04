@@ -8,6 +8,7 @@ use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class ProductController extends Controller
 {
@@ -63,7 +64,26 @@ class ProductController extends Controller
             })
             ->first();
 
-        return view('front.products.show', compact('product', 'banner'));
+        $cartQty = 0;
+
+        if (Cookie::get('shopping_cart')) {
+            $cookie_data = stripslashes(Cookie::get('shopping_cart'));
+            $cart_data = json_decode($cookie_data, true);
+
+            $item_id_list = array_column($cart_data, 'item_id');
+            $prod_id_is_there = $product->id;
+
+            if (in_array($prod_id_is_there, $item_id_list)) {
+                foreach ($cart_data as $keys => $values) {
+                    if ($cart_data[$keys]["item_id"] == $prod_id_is_there) {
+                        $cartQty = $cart_data[$keys]["item_quantity"];
+                        break;
+                    }
+                }
+            }
+        }
+
+        return view('front.products.show', compact('product', 'banner', 'cartQty'));
     }
 
     /**

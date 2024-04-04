@@ -18,3 +18,4 @@
 <!-- template styles -->
 <link rel="stylesheet" id="langLtr" href="{!! asset('front/assets/css/insur.css') !!}" />
 <link rel="stylesheet" href="{!! asset('front/assets/css/insur-responsive.css') !!}" />
+<link rel="stylesheet" href="{!! asset('front/assets/css/sweetalert2.min.css') !!}" />

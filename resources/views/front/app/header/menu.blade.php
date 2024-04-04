@@ -2,7 +2,7 @@
     <div class="main-menu__wrapper clearfix">
         <div class="container">
             <div class="main-menu__wrapper-inner clearfix">
-        
+
                 @include('front.app.header.menu.left')
 
 

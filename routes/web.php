@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Front\AboutController;
+use App\Http\Controllers\Front\CartController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\IndexController;
 use App\Http\Controllers\Front\PostController as FrontPostController;
@@ -80,6 +81,13 @@ Route::group([
         Route::get(LaravelLocalization::transRoute('routes.products.show'), [FrontProductController::class, 'show'])->name('products.show');
         Route::get(LaravelLocalization::transRoute('routes.posts'), [FrontPostController::class, 'index'])->name('posts.index');
         Route::get(LaravelLocalization::transRoute('routes.posts.show'), [FrontPostController::class, 'show'])->name('posts.show');
+        Route::get('cart', [CartController::class, 'index'])->name('cart');
+        Route::get('load-cart-data',[CartController::class, 'loadData'])->name('loadCart');
+        Route::post('add-to-cart', [CartController::class, 'addToCart'])->name('addtocart');
+        Route::post('update-to-cart', [CartController::class, 'updateToCart'])->name('updateToCart');
+        Route::delete('delete-from-cart',[CartController::class, 'deleteFromCart'])->name('deleteFromCart');
+        Route::get('cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+        Route::post('cart/order', [CartController::class, 'order'])->name('cart.order');
 
         Route::post('/sender', [ContactController::class, 'sendMail'])->name('sendMail');
         Route::post('product-request', [RequestController::class, 'store'])->name('requests.store');

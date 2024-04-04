@@ -25,7 +25,7 @@
     <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
 
     @include('front.layouts.scripts')
-    @push('js')
+    @stack('js')
 
 
     </body>

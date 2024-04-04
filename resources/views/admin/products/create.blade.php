@@ -31,6 +31,10 @@
                                         'name' => 'title',
                                         'label' => trans('transAdmin.title'),
                                     ])
+                                    @include('admin.forms.price.create', [
+                                        'name' => 'price',
+                                        'label' => trans('transAdmin.price'),
+                                    ])
 
                                     @include('admin.forms.image.create', [
                                         'resolution' => '270x320',

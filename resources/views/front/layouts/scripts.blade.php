@@ -11,6 +11,7 @@
 <script src="{!! asset('front/assets/vendors/owl-carousel/owl.carousel.min.js') !!}"></script>
 <script src="{!! asset('front/assets/vendors/bootstrap-select/js/bootstrap-select.min.js') !!}"></script>
 <script src="{!! asset('front/assets/vendors/nice-select/jquery.nice-select.min.js') !!}"></script>
+<script src="{!! asset('front/assets/js/sweetalert2.min.js') !!}"></script>
 
 <!-- template js -->
 <script src="{!! asset('front/assets/js/insur.js') !!}"></script>
@@ -33,4 +34,41 @@
         $('.js--currentImage').find('img').attr('src', selectedImage)
         $(this).find('img').attr('src', currentImage)
     })
+</script>
+
+<script>
+    $(document).ready(function() {
+        notify('hello')
+        @if (session()->has('success'))
+            notify("{{ session()->get('success') }}");
+        @endif
+        cartload();
+    });
+
+    function cartload() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: "{{ route('loadCart') }}",
+            method: "GET",
+            success: function(response) {
+                var count = response.totalcart;
+                $('.cart-count').html(count);
+            }
+        });
+    }
+
+    function notify(msg) {
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: msg,
+            showConfirmButton: false,
+            timer: 2000,
+        });
+    }
 </script>
