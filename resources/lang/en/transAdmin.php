@@ -224,8 +224,8 @@ return [
     'contacts' => 'Messages',
     'ad' => 'Ad',
     'ads' => 'Ads',
-    'post' => 'News',
-    'posts' => 'News',
+    'post' => 'Blog',
+    'posts' => 'Blogs',
     'page' => 'Page',
     'pages' => 'Pages',
     'slider' => 'Slider',
@@ -262,5 +262,5 @@ return [
     'partners' => 'Partners',
     'vacancy' => 'Vacancy',
     'serifikat' => 'Certificates',
-    'team'=> '«HAZAR ATIYACHLANDYRYSH» IC'  
+    'team'=> '«HAZAR ATIYACHLANDYRYSH» IC'
 ];

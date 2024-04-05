@@ -35,7 +35,7 @@
 
 
                                 <img src="{{ asset('front/logo.png') }}" alt="" class="img-fluid w-50 mb-3">
-                           
+
 
 
 

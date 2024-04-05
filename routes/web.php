@@ -19,8 +19,12 @@ use App\Http\Controllers\Front\AboutController;
 use App\Http\Controllers\Front\CartController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\IndexController;
+use App\Http\Controllers\Front\Auth\LoginController as FrontLoginController;
+use App\Http\Controllers\Front\Auth\RegisterController as FrontRegisterController;
 use App\Http\Controllers\Front\PostController as FrontPostController;
 use App\Http\Controllers\Front\ProductController as FrontProductController;
+use App\Http\Controllers\Front\CategoryController as FrontCategoryController;
+use App\Http\Controllers\Front\BrandController as FrontBrandController;
 use App\Http\Controllers\Front\RequestController;
 use App\Http\Controllers\Front\ServiceController;
 use App\Models\Slider;
@@ -70,13 +74,19 @@ Route::group([
             Route::resource('requests', AdminRequestController::class);
         });
 
-
+        Route::get('/sign-up', [FrontRegisterController::class, 'showRegistrationForm'])->name('front.register.form');
+        Route::get('/register', [FrontRegisterController::class, 'showRegistrationForm'])->name('front.register');
+        Route::get('/sign-in', [FrontLoginController::class, 'showLoginForm'])->name('front.login');
+        Route::post('/sign-in', [FrontLoginController::class, 'login'])->name('front.loginse');
+        Route::post('/sign-out', [FrontLoginController::class, 'logout'])->name('front.logout');
         Route::get('/', [IndexController::class, 'index'])->name('index');
         Route::get(LaravelLocalization::transRoute('routes.about'), [AboutController::class, 'index'])->name('about.index');
         Route::get(LaravelLocalization::transRoute('routes.services'), [ServiceController::class, 'index'])->name('services.index');
         Route::get(LaravelLocalization::transRoute('routes.services.show'), [ServiceController::class, 'show'])->name('services.show');
         Route::get(LaravelLocalization::transRoute('routes.contact'), [ContactController::class, 'index'])->name('contact.index');
 
+        Route::get(LaravelLocalization::transRoute('routes.categories'), [FrontCategoryController::class, 'index'])->name('categories.index');
+        Route::get(LaravelLocalization::transRoute('routes.brands'), [FrontBrandController::class, 'index'])->name('brands.index');
         Route::get(LaravelLocalization::transRoute('routes.products'), [FrontProductController::class, 'index'])->name('products.index');
         Route::get(LaravelLocalization::transRoute('routes.products.show'), [FrontProductController::class, 'show'])->name('products.show');
         Route::get(LaravelLocalization::transRoute('routes.posts'), [FrontPostController::class, 'index'])->name('posts.index');

@@ -225,8 +225,8 @@ return [
     'contacts' => 'Hatlar',
     'ad' => 'Reklama',
     'ads' => 'Reklamalar',
-    'post' => 'Täzelik',
-    'posts' => 'Täzelikler',
+    'post' => 'Blog',
+    'posts' => 'Bloglar',
     'page' => 'Sahypa',
     'pages' => 'Sahypalar',
     'slider' => 'Slaýder',
@@ -265,20 +265,20 @@ return [
     'iconCards' => 'Icon',
     'serifikat' => 'Sertifikatlar',
     'team' => '"HAZAR ÄTIÝAÇLANDYRYŞ" HJ',
-    
-    
-    
-    
-    'main' => 'Main',
-    
-    
-    
 
-    
-    
-    
-    
-    
+
+
+
+    'main' => 'Main',
+
+
+
+
+
+
+
+
+
 
 
 

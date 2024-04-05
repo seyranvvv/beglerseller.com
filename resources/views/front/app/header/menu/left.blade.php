@@ -4,15 +4,19 @@
     }
     .cart-count {
         position: absolute;
-        right: -25px;
-        top: 0;
+        right: -11px;
+        top: -8px;
         border-radius: 50%;
-        height: 25px;
-        width: 25px;
-        /* padding: 6px; */
+        height: 15px;
+        width: 15px;
+        vertical-align: middle;
+        text-align: center;
+        margin: auto;
+        background-color: var(--insur-primary);
+        padding: 2px;
         font-weight: bold;
-        font-size: 14px;
-        color: rgb(11, 165, 157);
+        font-size: 12px;
+        color: var(--insur-white);
         font-family: 'Roboto-Regular', serif !important;
     }
 </style>
@@ -51,10 +55,19 @@
                     <a href="{{ route('index') }}">@lang('transFront.home') </a>
 
                 </li>
-                <li class="{{ in_array(Route::currentRouteName(), ['about.index']) ? 'current' : '' }}">
-                    <a href="{{ route('about.index') }}">@lang('transFront.abouts') </a>
+                <li class="{{ in_array(Route::currentRouteName(), ['categories.index']) ? 'current' : '' }}">
+                    <a href="{{ route('categories.index') }}">@lang('transFront.categories') </a>
 
                 </li>
+                <li class="{{ in_array(Route::currentRouteName(), ['brands.index']) ? 'current' : '' }}">
+                    <a href="{{ route('brands.index') }}">@lang('transAdmin.brands') </a>
+
+                </li>
+                {{-- <li class="{{ in_array(Route::currentRouteName(), ['about.index']) ? 'current' : '' }}">
+                    <a href="{{ route('about.index') }}">@lang('transFront.abouts') </a>
+
+                </li> --}}
+
 
                 <li
                     class="dropdown {{ in_array(Route::currentRouteName(), ['products.index', 'products.show']) ? 'current ' : '' }}">
@@ -71,10 +84,10 @@
 
                 </li>
 
-                <li
+                {{-- <li
                     class="{{ Route::currentRouteName() == 'services.index' || Route::currentRouteName() == 'services.show' ? 'current' : '' }}">
                     <a href="{{ route('services.index') }}">@lang('transFront.services') </a>
-                </li>
+                </li> --}}
 
                 <li class="{{ in_array(Route::currentRouteName(), ['posts.index', 'posts.show']) ? 'current ' : '' }}">
                     <a href="{{ route('posts.index') }}">@lang('transAdmin.posts')</a>
@@ -88,9 +101,9 @@
                     </a> --}}
                     {{-- <a href="cart.html" class="main-menu__cart insur-two-icon-shopping-cart"></a> --}}
                     <div class="">
-                        <div class="">
+                        <div class="cart-link">
                             {{-- <a href="#" class="main-menu__search search-toggler icon-magnifying-glass"></a> --}}
-                            <a href="{{ route('cart') }}" class="main-menu__cart insur-two-icon-shopping-cart">
+                            <a href="{{ route('cart') }}" class="main-menu__cart insur-two-icon-shopping-cart ">
                                 <div class="cart-count"></div>
                             </a>
                         </div>

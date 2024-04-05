@@ -14,4 +14,5 @@
     @include('front.sections.services')
     @include('front.sections.news')
     @include('front.sections.categories')
+    @include('front.sections.brands')
 @endsection

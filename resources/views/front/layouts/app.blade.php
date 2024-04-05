@@ -17,7 +17,7 @@
     <div class="page-wrapper">
         @include('front.app.header')
         @yield('content')
-        @include('front.sections.brands')
+        {{-- @include('front.sections.brands') --}}
         @include('front.app.footer')
     </div>
     @include('front.app.nav')
