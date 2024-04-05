@@ -74,4 +74,18 @@ class Product extends Model implements HasMedia
             ->usingFileName($filename)
             ->toMediaCollection($p);
     }
+
+    public function isFavorite(): bool
+    {
+        $client = auth()->guard('client')->user();
+        if (!$client)
+            return false;
+
+        $isFavorite = \DB::table('favorites')
+            ->where('client_id', $client->id)
+            ->where('product_id', $this->id)
+            ->exists();
+
+        return $isFavorite;
+    }
 }

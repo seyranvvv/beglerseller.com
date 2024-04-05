@@ -10,5 +10,7 @@ return [
     "products"          =>  "products",
     "posts.show"        =>  "posts/{post}",
     "products.show"     =>  "products/{product}",
+    "products.add-to-favorites"     =>  "products/{product}/add-to-favorites",
+    "products.remove-from-favorites"     =>  "products/{product}/remove-from-favorites",
 
 ];

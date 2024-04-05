@@ -42,6 +42,7 @@
             notify("{{ session()->get('success') }}");
         @endif
         cartload();
+        favoritesload();
     });
 
     function cartload() {
@@ -57,6 +58,23 @@
             success: function(response) {
                 var count = response.totalcart;
                 $('.cart-count').html(count);
+            }
+        });
+    }
+
+    function favoritesload() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: "{{ route('favorites.count') }}",
+            method: "GET",
+            success: function(response) {
+                var count = response.favorite_count;
+                $('.favorite-count').html(count);
             }
         });
     }

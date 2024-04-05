@@ -19,6 +19,7 @@ use App\Http\Controllers\Front\AboutController;
 use App\Http\Controllers\Front\CartController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\IndexController;
+use App\Http\Controllers\Front\FavoriteController as FrontFavoriteController;
 use App\Http\Controllers\Front\Auth\LoginController as FrontLoginController;
 use App\Http\Controllers\Front\Auth\RegisterController as FrontRegisterController;
 use App\Http\Controllers\Front\PostController as FrontPostController;
@@ -91,6 +92,9 @@ Route::group([
         Route::get(LaravelLocalization::transRoute('routes.products.show'), [FrontProductController::class, 'show'])->name('products.show');
         Route::get(LaravelLocalization::transRoute('routes.posts'), [FrontPostController::class, 'index'])->name('posts.index');
         Route::get(LaravelLocalization::transRoute('routes.posts.show'), [FrontPostController::class, 'show'])->name('posts.show');
+        Route::get('favorite-count', [FrontFavoriteController::class, 'favoriteCount'])->name('favorites.count');
+        Route::post('add-to-favorites/{product}', [FrontFavoriteController::class, 'addToFavorites'])->name('favorites.add');
+        Route::post('remove-from-favorites/{product}', [FrontFavoriteController::class, 'removeFromFavorites'])->name('favorites.remove');
         Route::get('cart', [CartController::class, 'index'])->name('cart');
         Route::get('load-cart-data',[CartController::class, 'loadData'])->name('loadCart');
         Route::post('add-to-cart', [CartController::class, 'addToCart'])->name('addtocart');

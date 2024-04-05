@@ -148,5 +148,10 @@ return [
     'title_advertisement' => 'Ätiýaçlandyryş Kompaniýasy "Hazar Ätiýaçlandyryş" AGPJ-i',
     'close' => 'Ýap',
     'write_a_message' => 'Siziň hatyňyz',
-
+    'first_name' => 'First name',
+    'last_name' => 'Last name',
+    'password_confirmation' => 'Password confirmation',
+    'keep_logged_in' => 'Keep me logged in',
+    'sign_in' => 'Sign in',
+    'sign_up' => 'Sign up',
 ];

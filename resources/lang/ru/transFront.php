@@ -144,5 +144,11 @@ return [
     'title_advertisement' => 'Страховая Компания «ХАЗАР АТИЯЧЛАНДЫРЫШ» ОАО',
     'close' => 'Закрыть',
     'write_a_message' => 'Напишите сообщение',
+    'first_name' => 'First name',
+    'last_name' => 'Last name',
+    'password_confirmation' => 'Password confirmation',
+    'keep_logged_in' => 'Keep me logged in',
+    'sign_in' => 'Sign in',
+    'sign_up' => 'Sign up',
 
 ];

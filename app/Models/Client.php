@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -41,4 +42,14 @@ class Client extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function favorites(): BelongsToMany
+    {
+        return $this->belongsToMany(Product::class,'favorites','client_id','product_id');
+    }
+
+    public function favoriteCount():int
+    {
+        return $this->favorites->count();
+    }
 }
