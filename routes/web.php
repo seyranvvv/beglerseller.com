@@ -75,9 +75,9 @@ Route::group([
         });
 
         Route::get('/sign-up', [FrontRegisterController::class, 'showRegistrationForm'])->name('front.register.form');
-        Route::get('/register', [FrontRegisterController::class, 'showRegistrationForm'])->name('front.register');
-        Route::get('/sign-in', [FrontLoginController::class, 'showLoginForm'])->name('front.login');
-        Route::post('/sign-in', [FrontLoginController::class, 'login'])->name('front.loginse');
+        Route::post('/sign-up', [FrontRegisterController::class, 'register'])->name('front.register');
+        Route::get('/sign-in', [FrontLoginController::class, 'showLoginForm'])->name('front.login.form');
+        Route::post('/sign-in', [FrontLoginController::class, 'login'])->name('front.login');
         Route::post('/sign-out', [FrontLoginController::class, 'logout'])->name('front.logout');
         Route::get('/', [IndexController::class, 'index'])->name('index');
         Route::get(LaravelLocalization::transRoute('routes.about'), [AboutController::class, 'index'])->name('about.index');

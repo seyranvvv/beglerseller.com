@@ -17,8 +17,6 @@ class IndexController extends Controller
 {
     public function index()
     {
-
-        
         $sliders = Slider::whereHas('section', function ($q) {
             $q->whereSlug(config('section')->slug);
         })->get();

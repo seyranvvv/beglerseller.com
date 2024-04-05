@@ -141,4 +141,10 @@ return [
     'close' => 'Close',
     'write_a_message' => 'Write a message',
 
+    'first_name' => 'First name',
+    'last_name' => 'Last name',
+    'password_confirmation' => 'Password confirmation',
+    'keep_logged_in' => 'Keep me logged in',
+    'sign_in' => 'Sign in',
+    'sign_up' => 'Sign up',
 ];

@@ -6,34 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> {{ config('section')->name }}</title>
-    <!-- core:css -->
     <link rel="stylesheet" href="{{ asset('assets/vendors/core/core.css') }}">
-    <!-- endinject -->
-    <!-- plugin css for this page -->
-    <!-- end plugin css for this page -->
-    <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('assets/fonts/feather-font/css/iconfont.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
-    <!-- endinject -->
-    <!-- Layout styles -->
     <link rel="icon" href="{{ asset('img/logo.png') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/demo_1/style.css') }}">
-    <!-- End layout styles -->
-    <!-- Android & Iphone -->
-    {{--    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon-16.png') }}"> --}}
-    {{--    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/favicon-32.png') }}"> --}}
-    {{--    <link rel="icon" type="image/png" sizes="48x48" href="{{ asset('assets/images/favicon-48.png') }}"> --}}
-    {{--    <link rel="icon" type="image/png" sizes="64x64" href="{{ asset('assets/images/favicon-64.png') }}"> --}}
-    {{--    <!-- Optional: iPads, androids, iPhones, ...--> --}}
-    {{--    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/images/favicon-57.png') }}"> --}}
-    {{--    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/images/favicon-72.png') }}"> --}}
-    {{--    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/images/favicon-114.png') }}"> --}}
-    {{--    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/images/favicon-120.png') }}"> --}}
-    {{--    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/images/favicon-144.png') }}"> --}}
-    {{--    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/images/favicon-152.png') }}"> --}}
-    {{--    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images/favicon-256.png') }}"> --}}
-    {{--    <!-- Desktops --> --}}
-    {{--    <link rel="shortcut icon" href="{{asset('assets/images/favicon-144.png')}}"> --}}
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <style>
         .auth-page .auth-left-wrapper {

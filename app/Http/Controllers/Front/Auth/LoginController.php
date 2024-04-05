@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -29,7 +30,7 @@ class LoginController extends Controller
      */
     protected function redirectTo()
     {
-        return route('admin.dashboard');
+        return RouteServiceProvider::HOME;
     }
 
     /**
@@ -45,25 +46,22 @@ class LoginController extends Controller
     protected function validateLogin(Request $request)
     {
         $this->validate($request, [
-            $this->username() => 'required|string|exists:users,' . $this->username() . ',active,1',
+            $this->username() => 'required|email|exists:clients,' . $this->username(),
             'password' => 'required|string',
         ], [
             $this->username() . '.exists' => trans('auth.failed')
         ]);
     }
 
-
-    public function username()
-    {
-        return 'username';
-    }
-
-
-
     public function showLoginForm()
 
     {
 
-        return view('auth.login');
+        return view('front.auth.login');
+    }
+
+    protected function guard()
+    {
+        return Auth::guard('client');
     }
 }

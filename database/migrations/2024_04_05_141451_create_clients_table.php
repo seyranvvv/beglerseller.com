@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->date('email_verified_at')->nullable()->default(null);
             $table->rememberToken();
             $table->timestamps();
         });
@@ -27,5 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('clients');
     }
 };
