@@ -58,7 +58,12 @@
                             <li>
                                 <a rel="alternate" hreflang="{{ $localeCode }}"
                                     href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                    {{ $properties['native'] }}
+                                    <div>
+                                        <img width="20" height="15" src="{{asset("flags/{$localeCode}.png")}}" alt="">
+                                        <span>
+                                            {{ $properties['native'] }}
+                                        </span>
+                                    </div>
                                 </a>
                             </li>
                         @endforeach
