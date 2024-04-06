@@ -13,7 +13,7 @@
 
 
     <!--Start Cart Page-->
-    @if (isset($cart_data) && $cart_data && Cookie::get('shopping_cart'))
+    @if ((isset($cart_data) && $cart_data) && (auth()->guard('client')->user() || Cookie::get('shopping_cart')))
         @php $total="0" @endphp
         <section class="cart-page">
             <div class="container">

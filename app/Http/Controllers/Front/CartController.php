@@ -26,7 +26,7 @@ class CartController extends Controller
 
         $client = $this->currentClient();
         if ($client) {
-            $products = $client->carts;
+            $products = $client->cartProducts;
             $cart_data = [];
             foreach ($products as $product) {
                 $cart_data[] = [
@@ -34,7 +34,7 @@ class CartController extends Controller
                     'item_name' => $product->title,
                     'item_quantity' => $product->pivot->quantity,
                     'item_price' => $product->price,
-                    'item_image' => $product->pivot->image,
+                    'item_image' => $product->getfirstMediaUrl('products'),
                 ];
             }
             return view('front.cart.index', compact('cart_data', 'banner'));
@@ -48,7 +48,7 @@ class CartController extends Controller
     {
         $client = $this->currentClient();
         if ($client) {
-            return response()->json(['totalcart' => $client->carts()->count()]);
+            return response()->json(['totalcart' => $client->carts()->sum('quantity')]);
         }
 
         if (Cookie::get('shopping_cart')) {
@@ -77,15 +77,15 @@ class CartController extends Controller
             $products = Product::find($prod_id);
             if ($products) {
                 $prod_name = $products->title;
-                $prod_image = $products->getfirstMediaUrl('products');
-                $priceval = $products->price ? $products->price : 0;
 
-                $client->carts()->attach($prod_id, [
-                    "name" => $prod_name,
-                    "quantity" => $quantity,
-                    "price" => $priceval,
-                    "image" => $prod_image,
-                ]);
+                $client->carts()->updateOrCreate(
+                    [
+                        'product_id' => $prod_id
+                    ],
+                    [
+                        "quantity" => $quantity,
+                    ]
+                );
             }
 
             return response()->json(['status' => '"' . $prod_name . '" Added to Cart']);
@@ -146,14 +146,13 @@ class CartController extends Controller
             $products = Product::find($prod_id);
             if ($products) {
                 $prod_name = $products->title;
-                $prod_image = $products->getfirstMediaUrl('products');
-                $priceval = $products->price ? $products->price : 0;
 
-                $client->carts()->attach($prod_id, [
-                    "name" => $prod_name,
+                $client->carts()->updateOrCreate(
+                    [
+                        'product_id' => $prod_id
+                    ],
+                    [
                     "quantity" => $quantity,
-                    "price" => $priceval,
-                    "image" => $prod_image,
                 ]);
             }
 
@@ -189,7 +188,7 @@ class CartController extends Controller
 
         $client = $this->currentClient();
         if ($client) {
-            $client->carts()->detach($prod_id);
+            $client->carts()->where('product_id', $prod_id)->delete();
 
             return response()->json(['status' => 'Item Removed from Cart']);
         }
@@ -252,17 +251,15 @@ class CartController extends Controller
         $order->phone = $request->phone;
         $order->total_price = 0;
         $order->save();
+
         $cartPrice = 0;
-        if (Cookie::get('shopping_cart')) {
-            $cookie_data = stripslashes(Cookie::get('shopping_cart'));
-            $cart_data = json_decode($cookie_data, true);
-            $totalcart = 0;
-            foreach ($cart_data as $keys => $values) {
-                $product_id = $cart_data[$keys]["item_id"];
-                $product = Product::find($product_id);
-                if (!$product)
-                    continue;
-                $qty = (float) $cart_data[$keys]["item_quantity"];
+
+        $client = $this->currentClient();
+        if ($client) {
+            $order->client_id = $client->id;
+            $products = $client->cartProducts;
+            foreach ($products as $product) {
+                $qty = (float) $product->pivot->quantity;
                 $price = (float) $product->price;
                 $total_price = number_format($qty * $price, 2);
                 $cartPrice += ($qty * $price);
@@ -271,7 +268,27 @@ class CartController extends Controller
                     'price' => $total_price,
                 ]);
             }
-            Cookie::queue(Cookie::forget('shopping_cart'));
+            $client->carts()->delete();
+        } else {
+            if (Cookie::get('shopping_cart')) {
+                $cookie_data = stripslashes(Cookie::get('shopping_cart'));
+                $cart_data = json_decode($cookie_data, true);
+                foreach ($cart_data as $keys => $values) {
+                    $product_id = $cart_data[$keys]["item_id"];
+                    $product = Product::find($product_id);
+                    if (!$product)
+                        continue;
+                    $qty = (float) $cart_data[$keys]["item_quantity"];
+                    $price = (float) $product->price;
+                    $total_price = number_format($qty * $price, 2);
+                    $cartPrice += ($qty * $price);
+                    $order->products()->attach($product->id, [
+                        'qantity' => $qty,
+                        'price' => $total_price,
+                    ]);
+                }
+                Cookie::queue(Cookie::forget('shopping_cart'));
+            }
         }
         $order->total_price = $cartPrice;
 

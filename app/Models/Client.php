@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -48,9 +49,14 @@ class Client extends Authenticatable
         return $this->belongsToMany(Product::class,'favorites','client_id','product_id');
     }
 
-    public function carts(): BelongsToMany
+    public function cartProducts(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class,'carts','client_id','product_id');
+        return $this->belongsToMany(Product::class,'carts','client_id','product_id')->withPivot('quantity');
+    }
+
+    public function carts(): HasMany
+    {
+        return $this->hasMany(Cart::class);
     }
 
     public function favoriteCount():int
