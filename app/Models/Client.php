@@ -48,6 +48,11 @@ class Client extends Authenticatable
         return $this->belongsToMany(Product::class,'favorites','client_id','product_id');
     }
 
+    public function carts(): BelongsToMany
+    {
+        return $this->belongsToMany(Product::class,'carts','client_id','product_id');
+    }
+
     public function favoriteCount():int
     {
         return $this->favorites->count();

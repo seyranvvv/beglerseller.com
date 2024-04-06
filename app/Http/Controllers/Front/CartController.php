@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 class CartController extends Controller
 {
     protected $cookieEpireMin = 60 * 24 * 7;
+
     public function index()
     {
         $banner = Banner::whereHas('section', function ($q) {
@@ -22,6 +23,22 @@ class CartController extends Controller
                 $query->whereSlug('product');
             })
             ->first();
+
+        $client = $this->currentClient();
+        if ($client) {
+            $products = $client->carts;
+            $cart_data = [];
+            foreach ($products as $product) {
+                $cart_data[] = [
+                    'item_id' => $product->id,
+                    'item_name' => $product->title,
+                    'item_quantity' => $product->pivot->quantity,
+                    'item_price' => $product->price,
+                    'item_image' => $product->pivot->image,
+                ];
+            }
+            return view('front.cart.index', compact('cart_data', 'banner'));
+        }
         $cookie_data = stripslashes(Cookie::get('shopping_cart'));
         $cart_data = json_decode($cookie_data, true);
         return view('front.cart.index', compact('cart_data', 'banner'));
@@ -29,6 +46,11 @@ class CartController extends Controller
 
     public function loadData()
     {
+        $client = $this->currentClient();
+        if ($client) {
+            return response()->json(['totalcart' => $client->carts()->count()]);
+        }
+
         if (Cookie::get('shopping_cart')) {
             $cookie_data = stripslashes(Cookie::get('shopping_cart'));
             $cart_data = json_decode($cookie_data, true);
@@ -47,9 +69,28 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
-
         $prod_id = $request->input('product_id');
         $quantity = $request->input('quantity');
+
+        $client = $this->currentClient();
+        if ($client) {
+            $products = Product::find($prod_id);
+            if ($products) {
+                $prod_name = $products->title;
+                $prod_image = $products->getfirstMediaUrl('products');
+                $priceval = $products->price ? $products->price : 0;
+
+                $client->carts()->attach($prod_id, [
+                    "name" => $prod_name,
+                    "quantity" => $quantity,
+                    "price" => $priceval,
+                    "image" => $prod_image,
+                ]);
+            }
+
+            return response()->json(['status' => '"' . $prod_name . '" Added to Cart']);
+        }
+
 
         if (Cookie::get('shopping_cart')) {
             $cookie_data = stripslashes(Cookie::get('shopping_cart'));
@@ -100,6 +141,26 @@ class CartController extends Controller
         $prod_id = $request->input('product_id');
         $quantity = $request->input('quantity');
 
+        $client = $this->currentClient();
+        if ($client) {
+            $products = Product::find($prod_id);
+            if ($products) {
+                $prod_name = $products->title;
+                $prod_image = $products->getfirstMediaUrl('products');
+                $priceval = $products->price ? $products->price : 0;
+
+                $client->carts()->attach($prod_id, [
+                    "name" => $prod_name,
+                    "quantity" => $quantity,
+                    "price" => $priceval,
+                    "image" => $prod_image,
+                ]);
+            }
+
+            return response()->json(['status' => '"' . $prod_name . '" Quantity Updated']);
+        }
+
+
         if (Cookie::get('shopping_cart')) {
             $cookie_data = stripslashes(Cookie::get('shopping_cart'));
             $cart_data = json_decode($cookie_data, true);
@@ -125,6 +186,14 @@ class CartController extends Controller
     public function deleteFromCart(Request $request)
     {
         $prod_id = $request->input('product_id');
+
+        $client = $this->currentClient();
+        if ($client) {
+            $client->carts()->detach($prod_id);
+
+            return response()->json(['status' => 'Item Removed from Cart']);
+        }
+
 
         $cookie_data = stripslashes(Cookie::get('shopping_cart'));
         $cart_data = json_decode($cookie_data, true);
@@ -163,10 +232,10 @@ class CartController extends Controller
     public function order(Request $request)
     {
         $request->validate([
-            'first_name'=> 'required',
-            'last_name'=> 'required',
-            'email'=> 'nullable|email',
-            'phone'=> 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'nullable|email',
+            'phone' => 'required',
         ]);
         $banner = Banner::whereHas('section', function ($q) {
             $q->whereId(config('section')->id);
@@ -191,10 +260,11 @@ class CartController extends Controller
             foreach ($cart_data as $keys => $values) {
                 $product_id = $cart_data[$keys]["item_id"];
                 $product = Product::find($product_id);
-                if (!$product) continue;
+                if (!$product)
+                    continue;
                 $qty = (float) $cart_data[$keys]["item_quantity"];
                 $price = (float) $product->price;
-                $total_price = number_format($qty * $price , 2);
+                $total_price = number_format($qty * $price, 2);
                 $cartPrice += ($qty * $price);
                 $order->products()->attach($product->id, [
                     'qantity' => $qty,
@@ -209,4 +279,8 @@ class CartController extends Controller
         return redirect()->route('products.index')->with('success', 'Your order is ordered!');
     }
 
+    public function currentClient()
+    {
+        return auth()->guard('client')->user();
+    }
 }
