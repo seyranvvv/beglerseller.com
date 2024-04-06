@@ -118,8 +118,8 @@
                         <div class="top-count cart-count"></div>
                     </a>
                 </li>
-                <li class="{{ in_array(Route::currentRouteName(), ['brands.index']) ? 'current' : '' }} cart-link">
-                    <a href="#">
+                <li class="{{ in_array(Route::currentRouteName(), ['favorites.index']) ? 'current' : '' }} cart-link">
+                    <a href="{{ route('favorites.index') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" class="feather feather-heart">

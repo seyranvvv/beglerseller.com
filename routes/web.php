@@ -79,7 +79,7 @@ Route::group([
         Route::post('/sign-up', [FrontRegisterController::class, 'register'])->name('front.register');
         Route::get('/sign-in', [FrontLoginController::class, 'showLoginForm'])->name('front.login.form');
         Route::post('/sign-in', [FrontLoginController::class, 'login'])->name('front.login');
-        Route::post('/sign-out', [FrontLoginController::class, 'logout'])->name('front.logout');
+        Route::get('/sign-out', [FrontLoginController::class, 'logout'])->name('front.logout');
         Route::get('/', [IndexController::class, 'index'])->name('index');
         Route::get(LaravelLocalization::transRoute('routes.about'), [AboutController::class, 'index'])->name('about.index');
         Route::get(LaravelLocalization::transRoute('routes.services'), [ServiceController::class, 'index'])->name('services.index');
@@ -92,6 +92,7 @@ Route::group([
         Route::get(LaravelLocalization::transRoute('routes.products.show'), [FrontProductController::class, 'show'])->name('products.show');
         Route::get(LaravelLocalization::transRoute('routes.posts'), [FrontPostController::class, 'index'])->name('posts.index');
         Route::get(LaravelLocalization::transRoute('routes.posts.show'), [FrontPostController::class, 'show'])->name('posts.show');
+        Route::get('favorites', [FrontFavoriteController::class, 'index'])->name('favorites.index');
         Route::get('favorite-count', [FrontFavoriteController::class, 'favoriteCount'])->name('favorites.count');
         Route::post('add-to-favorites/{product}', [FrontFavoriteController::class, 'addToFavorites'])->name('favorites.add');
         Route::post('remove-from-favorites/{product}', [FrontFavoriteController::class, 'removeFromFavorites'])->name('favorites.remove');

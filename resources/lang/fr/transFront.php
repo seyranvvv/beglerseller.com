@@ -154,4 +154,7 @@ return [
     'keep_logged_in' => 'Keep me logged in',
     'sign_in' => 'Sign in',
     'sign_up' => 'Sign up',
+    'favorites' => 'Favorites',
+    'favorites_text' => 'Your favorite is currently empty.',
+
 ];

@@ -7,10 +7,10 @@
             <ul class="thm-breadcrumb list-unstyled">
                 <li><a href="{{ route('index') }}">@lang('transFront.home')</a></li>
                 <li><span>/</span></li>
-                <li> {{ optional(optional($banner)->type)->name }}
+                <li> @lang('transFront.favorites')
                 </li>
             </ul>
-            <h2> {{ optional(optional($categories->first())->parentCategory)->name }}
+            <h2> @lang('transFront.favorites')
             </h2>
         </div>
     </div>
