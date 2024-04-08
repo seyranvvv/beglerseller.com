@@ -23,9 +23,11 @@
                     </div>
                 </div>
                 <div class="product-price">
-                    <del>
-                        <span class="amount">${{ number_format($product->price, 2) }}</span>
-                    </del>
+                    @if ($product->discount_amount > 0)
+                        <del>
+                            <span class="amount">${{ number_format($product->price, 2) }}</span>
+                        </del>
+                    @endif
                     <ins>
                         <span class="amount">${{ number_format($product->discounted_price, 2) }}</span>
                     </ins>
