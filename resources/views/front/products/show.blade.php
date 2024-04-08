@@ -70,6 +70,16 @@
                             </svg>
                         </div>
                     </div>
+                    <div class="product-details-price">
+                        <div class="product-price" style="margin: 0;padding:0;">
+                            <del style="font-size: 20px;">
+                                <span class="amount">${{ number_format($product->price, 2) }}</span>
+                            </del>
+                            <ins style="font-size: 32px">
+                                <span class="amount">${{ number_format($product->discounted_price, 2) }}</span>
+                            </ins>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

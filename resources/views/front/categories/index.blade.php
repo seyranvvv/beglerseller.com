@@ -12,7 +12,7 @@
     <!--Insurance Page One Start-->
     <section class="insurance-page-one">
         <div class="services-one__container">
-            <div class="row">
+            <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-2">
                 <!--Services One Single Start-->
                 @foreach ($categories as $category)
                         <!--Services One Single Start-->

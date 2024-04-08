@@ -15,7 +15,7 @@
         </div>
         <div class="services-one__bottom">
             <div class="services-one__container">
-                <div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-2">
+                <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-2">
                     @foreach ($categories as $category)
                         <!--Services One Single Start-->
                         <div class="col wow fadeInUp" data-wow-delay="100ms">

@@ -33,7 +33,7 @@ class CartController extends Controller
                     'item_id' => $product->id,
                     'item_name' => $product->title,
                     'item_quantity' => $product->pivot->quantity,
-                    'item_price' => $product->price,
+                    'item_price' => $product->discounted_price,
                     'item_image' => $product->getfirstMediaUrl('products'),
                 ];
             }
@@ -116,7 +116,7 @@ class CartController extends Controller
             $products = Product::find($prod_id);
             $prod_name = $products->name;
             $prod_image = $products->getfirstMediaUrl('products');
-            $priceval = $products->price;
+            $priceval = $products->discounted_price;
 
             if ($products) {
                 $item_array = array(
@@ -260,7 +260,7 @@ class CartController extends Controller
             $products = $client->cartProducts;
             foreach ($products as $product) {
                 $qty = (float) $product->pivot->quantity;
-                $price = (float) $product->price;
+                $price = (float) $product->discounted_price;
                 $total_price = number_format($qty * $price, 2);
                 $cartPrice += ($qty * $price);
                 $order->products()->attach($product->id, [
@@ -279,7 +279,7 @@ class CartController extends Controller
                     if (!$product)
                         continue;
                     $qty = (float) $cart_data[$keys]["item_quantity"];
-                    $price = (float) $product->price;
+                    $price = (float) $product->discounted_price;
                     $total_price = number_format($qty * $price, 2);
                     $cartPrice += ($qty * $price);
                     $order->products()->attach($product->id, [

@@ -24,6 +24,7 @@ class ProductRequest extends FormRequest
         return [
             'title' => 'required|array',
             'price'=> 'required|numeric',
+            'discount_amount'=> 'nullable|numeric',
             'title.*' => 'required|string',
             'content' => 'required|array',
             'content.*' => 'required|string',

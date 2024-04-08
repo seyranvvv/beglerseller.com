@@ -22,6 +22,15 @@
 
                     </div>
                 </div>
+                <div class="product-price">
+                    <del>
+                        <span class="amount">${{ number_format($product->price, 2) }}</span>
+                    </del>
+                    <ins>
+                        <span class="amount">${{ number_format($product->discounted_price, 2) }}</span>
+                    </ins>
+                </div>
+
             </div>
             <!--Product All Single End-->
         @endforeach

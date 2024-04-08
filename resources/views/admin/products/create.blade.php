@@ -34,6 +34,11 @@
                                     @include('admin.forms.price.create', [
                                         'name' => 'price',
                                         'label' => trans('transAdmin.price'),
+                                        'required' => true,
+                                    ])
+                                    @include('admin.forms.price.create', [
+                                        'name' => 'discount_amount',
+                                        'label' => trans('transAdmin.discount-price'),
                                     ])
 
                                     @include('admin.forms.image.create', [

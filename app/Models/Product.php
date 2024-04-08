@@ -9,6 +9,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Translatable\HasTranslations;
 use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Product extends Model implements HasMedia
 {
@@ -87,5 +88,27 @@ class Product extends Model implements HasMedia
             ->exists();
 
         return $isFavorite;
+    }
+
+
+    protected function discountedPrice(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => (floatval($this->price )) - (floatval($this->discount_amount)),
+        );
+    }
+
+    protected function price(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => $value ? $value : 0,
+        );
+    }
+
+    protected function discountAmount(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => $value ? $value : 0,
+        );
     }
 }

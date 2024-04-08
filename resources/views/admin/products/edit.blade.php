@@ -39,6 +39,14 @@
                                         'name' => 'price',
                                         'value' => $obj->price,
                                         'label' => trans('transAdmin.price'),
+                                        'required' => true,
+
+                                    ])
+
+                                    @include('admin.forms.price.edit', [
+                                        'name' => 'discount_amount',
+                                        'value' => $obj->discount_amount,
+                                        'label' => trans('transAdmin.discount-price'),
                                     ])
 
                                     @include('admin.forms.image.edit', [
