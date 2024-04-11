@@ -13,7 +13,6 @@ return [
     |
     */
 
-    'failed' => 'Bu hasapda ulanyjymyz ýok.',
-    'throttle' => 'Içeri girmäge köp synanyşdyňyz. Haýyş :seconds sekuntdan täzeden synanyşyň.',
-
+    "failed" => "Aucun compte trouvé pour cet utilisateur.",
+    "throttle" => "Trop de tentatives de connexion. Veuillez réessayer dans :seconds secondes.",
 ];

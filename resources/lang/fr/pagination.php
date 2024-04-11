@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'previous' => '&laquo; Öňki',
-    'next' => 'Indiki &raquo;',
+    "previous" => "Précédent",
+    "next" => "Suivant "
 
 ];

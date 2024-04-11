@@ -13,9 +13,8 @@ return [
     |
     */
 
-    'reset' => 'Açarsözüňiz täzelendi!',
-    'sent' => 'E-poçtaňyza açar sözüňizi täzelemek üçin salgy ugradyldy!',
-    'token' => 'Bu açarsöz täzeleme kod birligi ýalňyş.',
-    'user' => "Bu e-poçta salga degişli ulanyjy tapylmady.",
-
+    'reset' => 'Votre mot de passe a été réinitialisé !',
+    'sent' => 'Un lien de réinitialisation de mot de passe a été envoyé à votre adresse e-mail !',
+    'token' => 'Ce code de réinitialisation de mot de passe est incorrect.',
+    'user' => "Aucun utilisateur trouvé avec cette adresse e-mail."
 ];
