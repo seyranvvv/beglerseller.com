@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ParentCategoryController;
+use App\Http\Controllers\Admin\PasswordChangeController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RequestController as AdminRequestController;
@@ -60,6 +61,8 @@ Route::group([
             Route::redirect('dashboard', 'section');
             Route::get('section', [SectionController::class, 'edit'])->name('sections.edit');
             Route::put('section', [SectionController::class, 'update'])->name('sections.update');
+            Route::get('password-edit', [PasswordChangeController::class, 'edit'])->name('password.edit');
+            Route::put('password-update/{user}', [PasswordChangeController::class, 'update'])->name('password.update');
 
             Route::resource('sliders', SliderController::class);
             Route::resource('cards', CardController::class);

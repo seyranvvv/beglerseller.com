@@ -116,8 +116,15 @@
 
 
 
-            <li class="nav-item nav-category">Çykmak</li>
+            <li class="nav-item nav-category">Admin</li>
 
+            <li class="nav-item ">
+
+                <a href="{{ route('admin.password.edit') }}" class="nav-link">
+                    <i class="link-icon" data-feather="key"></i>
+                    <span class="link-title">Acar soz </span>
+                </a>
+            </li>
             <li class="nav-item ">
 
                 <a class="nav-link " href="{{ route('logout') }}"
