@@ -264,5 +264,7 @@ return [
     'logout' => 'Выход',
     'shop' => 'Продукция',
     'serifikat' => 'Сертификаты',
-    'team'=> 'СК «HAZAR ÄTIÝAÇLANDYRYŞ»'
+    'team'=> 'СК «HAZAR ÄTIÝAÇLANDYRYŞ»',
+    'language'=> 'Language ru',
+
 ];

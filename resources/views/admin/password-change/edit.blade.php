@@ -5,7 +5,7 @@
 @section('content')
     <div class="justify-content-between align-items-center flex-wrap">
         <div class="float-left">
-            <h4 class="mb-3 mb-md-0 ">Acar üýtgetmek</h4>
+            <h4 class="mb-3 mb-md-0 ">@lang('transAdmin.password_change')</h4>
         </div>
         <div class="clearfix mb-3"></div>
 
@@ -23,15 +23,15 @@
 
                                     @include('admin.forms.password.edit',[
                                         'name' => 'old_password',
-                                        'label' => 'Öňki açar söz'
+                                        'label' => __('transAdmin.old_password')
                                     ])
                                     @include('admin.forms.password.edit',[
                                         'name' => 'password',
-                                        'label' => 'Acar soz'
+                                        'label' => __('transAdmin.password')
                                     ])
                                     @include('admin.forms.password.edit',[
                                         'name' => 'password_confirmation',
-                                        'label' => 'Acar soz tassykla'
+                                        'label' => __('transAdmin.password_confirmation')
                                     ])
                                 </div>
 
