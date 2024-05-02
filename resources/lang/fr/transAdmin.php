@@ -86,7 +86,6 @@ return [
           "sold"=> "Vendu",
           "viewed"=> "Consulté",
           "liked"=> "Aimé",
-          "image"=> "Image",
           "question"=> "Question",
           "answer"=> "Réponse",
           "choose-file"=> "Choisir un fichier",
@@ -253,16 +252,31 @@ return [
           "visitors"=> "Myhmanlar",
           "login-attempt"=> "Giriş",
           "login-attempts"=> "Girişler",
-          "password"=> "Açarsöz",
-          "logout"=> "Ulgamdan çyk",
           "shop"=> "Önümlerimiz",
           "iconCards"=> "Icon",
           "serifikat"=> "Sertifikatlar",
           "team"=> "\"HAZAR ÄTIÝAÇLANDYRYŞ\" HJ",
-          "main"=> "Main"
 
 
-
+          'language'=> 'Langue',
+          'main' => 'Main',
+          'image' => 'Image',
+          'bannières' => 'Bannières',
+          'icons' => 'Icônes',
+          'main_categories' => 'Catégories principales',
+          'requests' => 'Requests',
+          'abuot_us' => 'Abuot_us',
+          'services' => 'Services',
+          'news' => 'News',
+          'information' => 'Information',
+          'adminstration' => 'Adminstration',
+          'passwrod' => 'Mot de passe',
+          'logout' => 'Logout',
+          'password_change' => 'Changement de mot de passe',
+          'old_password' => 'Ancien mot de passe',
+          'password' => 'Mot de passe',
+          'password_confirmation' => 'Confirmation du mot de passe',
+          'update' => 'Mise à jour',
 
 
 
