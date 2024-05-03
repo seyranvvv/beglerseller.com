@@ -112,9 +112,23 @@
         margin-top: 4px;
     }
 
+
+
     @media only screen and (min-width: 991px) {
         #locales {
             display: none;
+        }
+    }
+
+    .footer-middle {
+        display: none;
+        background-color: #000;
+    }
+
+    @media only screen and (min-width: 1200px) {
+        .footer-middle {
+            display: block;
+            background-color: #fff;
         }
     }
 

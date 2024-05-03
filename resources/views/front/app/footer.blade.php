@@ -2,9 +2,9 @@
     <div class="site-footer-bg" style="background-image: url(front/assets/images/backgrounds/site-footer-bg.png);">
     </div>
     <div class="container">
-        <div class="site-footer__top pt-5 pb-4">
+        <div class="site-footer__top pt-0 pb-0">
             <div class="row">
-                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                <div class="col-xl-4 col-lg-6 mt-5 mb-4 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                     <div class="footer-widget__column footer-widget__about">
                         <div class="footer-widget__logo pb-3">
                             <a href="{!! route('index') !!}"><img
@@ -17,10 +17,10 @@
 
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
+                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp footer-middle" data-wow-delay="400ms">
 
                 </div>
-                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                <div class="col-xl-4 col-lg-6 mt-5 mb-4 col-md-6 wow fadeInUp" data-wow-delay="200ms">
                     <div class="footer-widget__column footer-widget__contact clearfix">
                         <h3 class="footer-widget__title">@lang('transFront.habarlashmak')</h3>
                         <ul class="footer-widget__contact-list list-unstyled clearfix">
