@@ -128,7 +128,7 @@
     @media only screen and (min-width: 1200px) {
         .footer-middle {
             display: block;
-            background-color: #fff;
+            background-color: #7F7F7F;
         }
     }
 
